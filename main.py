@@ -1,3 +1,28 @@
+"""
+EPMA Drug Suppression Script
+
+Author: Henry Carter
+Developed for: Norfolk and Norwich University Hospital
+
+Description:
+-------------
+Automates the suppression of outdated drug order notes in the EPMA system. This script logs into
+EPMA, navigates patient records using hospital numbers, and suppresses specific drug notes based on
+provided data, significantly reducing manual work for Pharmacists.
+
+Features:
+---------
+- Automates login and navigation in EPMA.
+- Searches for patients by hospital number.
+- Suppresses outdated drug order notes.
+- Utilizes Selenium for browser automation and Pandas for data handling.
+
+Requirements:
+-------------
+- Selenium, Pandas, Chrome WebDriver
+- Input data file: 'Order_Drug_Suppression.xls'
+"""
+
 import time
 from time import sleep
 from selenium import webdriver
@@ -53,10 +78,8 @@ def read_data():
         # Drop rows where both columns are NaN
         data_frame = data_frame.dropna(how="all", subset=[HOSPITAL_NUMBER_COLUMN, DRUG_NAME_COLUMN])
 
-        # Filter to keep only rows where column 0 has a 7-digit integer
-        #data_frame = data_frame[data_frame[HOSPITAL_NUMBER_COLUMN].str.match(r'^\d{7}$')]
 
-        # Ensure drug types are uppercase
+        # Ensure drug names are uppercase and contain no whitespace
         data_frame[DRUG_NAME_COLUMN] = data_frame[DRUG_NAME_COLUMN].str.upper()
         data_frame = data_frame.replace(r'\s+', '', regex=True)
 
