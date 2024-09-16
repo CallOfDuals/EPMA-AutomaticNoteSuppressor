@@ -11,6 +11,6 @@ The script automatically navigates through the EPMA system, searches for patient
 - **Data Input**: The script reads hospital numbers and associated drug orders from a pre-defined Excel file.
 - **Login & Navigation**: It logs into the EPMA system using user-provided credentials and navigates to the relevant patient records.
 - **Patient Search & Note Suppression**: The script searches for specific patients, checks for existing drug orders, and suppresses any matching notes.
-- **Automation**: All actions, from logging in to note suppression, are handled programmatically, minimizing the need for manual intervention.
+- **Automation**: All actions, from logging in to note suppression, are handled programmatically, minimising the need for manual intervention.
 
 This solution reduced manual data entry and ensured the accuracy of drug suppression notes, saving tens of hours per week for the Pharmacists.
